@@ -1,0 +1,18 @@
+This is the authors page.
+
+<div class="row">
+  <div class="col-xs-3">
+
+    <ul>
+      {{#each model as |author|}}
+        <li> {{link-to author.name "authors.author" author}}</li>
+      {{/each}}
+    </ul>
+
+  </div>
+
+  <div class="col-xs-9">
+    {{outlet}}
+  </div>
+
+</div>
