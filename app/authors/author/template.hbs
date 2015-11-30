@@ -1,8 +1,21 @@
-The author info will go here
+<div class="col-xs-6">
+  <h2>{{model.name}}</h2>
 
- <h2>{{author.name}}</h2>
+  <ul>
+    {{#each model.books as |book|}}
+      <li><a href="#"{{action "setBook" book}}>{{book.title}}</a></li>
+    {{/each}}
+  </ul>
+</div>
 
-<blockquote class='blockquote-reverse'>
-  <p>{{author.title}}</p>
-   <footer>{{author.author}}</footer>
-</blockquote>
+
+ <div class="col-xs-6">
+  {{#if selectedBook}}
+    <h2>{{selectedBook.title}}</h2>
+    <i><p>by {{selectedBook.author.name}}</p></i>
+
+    <blockquote class='blockquote'>
+       {{selectedBook.description}}
+    </blockquote>
+  {{/if}}
+</div>

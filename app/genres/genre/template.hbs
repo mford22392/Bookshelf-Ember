@@ -1,2 +1,42 @@
-The genre info will go here
-{{outlet}}
+<div class="col-xs-6">
+  <h2>{{model.name}}</h2>
+  <p> Books:</p>
+
+  <ul>
+    {{#each model.books as |book|}}
+      <!-- <li><a href="#"{{action "setBook" book}}>{{book.title}}</a></li> -->
+      {{book.title}}
+    {{/each}}
+  </ul><br>
+
+   <p> Authors:</p>
+
+  <ul>
+    {{#each model.authors as |author|}}
+      <li><a href="#"{{action "setAuthor" author}}>{{author.name}}</a></li>
+    {{/each}}
+  </ul>
+  
+</div>
+
+
+<div class="col-xs-6">
+  {{#if selectedBook}}
+    <h2>{{selectedBook.title}}</h2>
+    <i><p>by {{selectedBook.author.name}}</p></i>
+
+    <blockquote class='blockquote'>
+       {{selectedBook.description}}
+    </blockquote>
+  {{/if}}
+
+  {{#if selectedAuthor}}
+    <h2>{{selectedAuthor.name}}</h2>
+
+    <ul>
+      {{#each selectedAuthor.books as |book|}}
+        <li><a href="#"{{action "setBook" book}}>{{book.title}}</a></li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</div>

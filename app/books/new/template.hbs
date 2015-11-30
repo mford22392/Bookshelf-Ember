@@ -1,0 +1,27 @@
+<form >
+  <label for="title">Title</label>
+    {{input
+  type="text"
+  id="new-book"
+  placeholder="Title"
+  value=newTitle
+  action="save"}}
+    <!-- {{input value=newTitle placeholder="Title" id="title"}}<br> -->
+    <!-- Put an input helper for the title here! Make sure to give it an id of "title" -->
+  
+  <label for="author" >Author</label>
+  <select class="ember-select">
+  {{#each model as |author|}}
+    <option value="authorName">{{author.name}}</option>
+  {{/each}} 
+  </select>
+  <!-- {{view "select" content=model}} -->
+  <!-- Put an input helper for the url here! Make sure to give it an id of "url" -->
+  
+  <!-- Give the button below an action of 'save'! -->
+  <button id="submit" class="btn btn-primary" {{action "save"}}>Save</button>
+</form>
+
+<!-- {{#each model as |author|}}
+<p> {{author.name}} </p>
+{{/each}} -->
